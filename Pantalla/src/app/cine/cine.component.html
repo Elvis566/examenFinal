@@ -1,0 +1,15 @@
+<form action="" id="miFormulario">
+    <div>
+        <label for="">Nombre</label>
+        <input type="text" required #nombre>
+    </div><br>
+    <div>
+        <label for="">Lugar</label>
+        <input type="text" required #lugar>
+    </div><br>
+
+
+    <button type="button" (click)="createCines(nombre, lugar)" (click)="limpiarFormulario()">Guardar</button>
+
+</form>
+

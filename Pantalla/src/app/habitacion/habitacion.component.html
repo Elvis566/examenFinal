@@ -1,0 +1,69 @@
+<form action="" id="miFormulario">
+    <div>
+        <label for="">Num Habitacion</label>
+        <input type="text" required #numeroHabitacion>
+    </div><br>
+    <div>
+        <label for="">Num Asientos</label>
+        <input type="text" required #numeroAsientos>
+    </div><br>
+    <div>
+        <label for="">pelicula</label>
+        <input type="text" required #pelicula>
+    </div><br>
+    <div>
+        <label for="">Cines</label>
+        <select name="" id="" #cine_id>
+            @for(item of listaCines; track $index){ 
+                <option value="{{item.id}}">{{item.nombre}}</option>
+              }
+        </select>
+    </div><br>
+
+
+    <button type="button" (click)="CreateHabitaciones(numeroHabitacion, numeroAsientos,pelicula,cine_id)" (click)="limpiarFormulario()">Guardar</button>
+
+</form>
+
+<br>
+<br>
+
+<table border="1" style="width: 50%;">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Cine</th>
+            <th>Habitacion</th>
+            <th>Num Asientos</th>
+            <th>Pelicula</th>
+            <th>Lugar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(item of listaHabitaciones; track $index){ 
+                 <tr>
+            
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.numeroHabitacion}}</td>
+                <td>{{item.numeroAsientos}}</td>
+                <td>{{item.pelicula}}</td>
+                <td>{{item.lugar}}</td>
+                <td><button  (click)="Reservamos(item.id)">Reservar</button></td>
+            </tr>
+       }
+      
+    </tbody>
+</table>
+
+@if(op){
+    <form action="" id="miFormulario">
+        <div>
+            <label for="">Numero de Asientos a reservar</label>
+            <input type="text" required #numeroAsientos>
+        </div><br>
+        <button type="button" (click)="Reserva(numeroAsientos, idEs)" (click)="limpiarFormulario()">Guardar</button>
+    
+    </form>
+}
+<router-outlet/>
